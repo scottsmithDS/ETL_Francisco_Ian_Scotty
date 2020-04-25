@@ -1,3 +1,9 @@
+login_data = {
+    'utf8': '✓',
+    'user[email]': 'scottys@maxianet.com',
+    'user[password]': '1Sandiego!',
+    'user[remember_me]': '0'
+}
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
