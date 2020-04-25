@@ -10,23 +10,70 @@ import numpy as np
 import csv
 
 #This is not necessary to understand as it is just something I have set-up for making the scripts real time.
-ChileIDs = pd.read_csv('ChileIDs.csv')
-ColombiaIDs = pd.read_csv('ColombiaIDs.csv')
-CostaRicaIDs = pd.read_csv('CostaRicaIDs.csv')
-EcuadorIDs = pd.read_csv('EcuadorIDs.csv')
-MexicoSmartIDs = pd.read_csv('MexicoSmartIDs.csv')
-MexicoBeerIDs = pd.read_csv('MexicoBeerIDs.csv')
-PeruIDs = pd.read_csv('PeruIDs.csv')
-IntlIDs = pd.read_csv('IntlIDs.csv')
-ChileID = pd.DataFrame(ChileIDs)
-ColombiaID = pd.DataFrame(ColombiaIDs)
-CostaRicaID = pd.DataFrame(CostaRicaIDs)
-EcuadorID = pd.DataFrame(EcuadorIDs)
-MexicoSmartID = pd.DataFrame(MexicoSmartIDs)
-MexicoBeerID = pd.DataFrame(MexicoBeerIDs)
-PeruID = pd.DataFrame(PeruIDs)
-IntlID = pd.DataFrame(IntlIDs)
-
+    try: 
+        ChileIDs = pd.read_csv('ChileIDs.csv')
+    except:
+        pass
+    try:
+        ColombiaIDs = pd.read_csv('ColombiaIDs.csv')
+    except:
+        pass  
+    try:
+        CostaRicaIDs = pd.read_csv('CostaRicaIDs.csv')
+    except:
+        pass 
+    try:
+        EcuadorIDs = pd.read_csv('EcuadorIDs.csv')
+    except:
+        pass 
+    try:
+        MexicoSmartIDs = pd.read_csv('MexicoSmartIDs.csv')
+    except:
+        pass 
+    try:
+        MexicoBeerIDs = pd.read_csv('MexicoBeerIDs.csv')
+    except:
+        pass 
+    try:
+        PeruIDs = pd.read_csv('PeruIDs.csv')
+    except:
+        pass 
+    try:
+        IntlIDs = pd.read_csv('IntlIDs.csv')
+    except:
+        pass 
+    try:
+        ChileID = pd.DataFrame(ChileIDs)
+    except:
+        pass 
+    try:
+        ColombiaID = pd.DataFrame(ColombiaIDs)
+    except:
+        pass 
+    try:
+        CostaRicaID = pd.DataFrame(CostaRicaIDs)
+    except:
+        pass 
+    try:
+        EcuadorID = pd.DataFrame(EcuadorIDs)
+    except:
+        pass 
+    try:
+        MexicoSmartID = pd.DataFrame(MexicoSmartIDs)
+    except:
+        pass 
+    try:
+        MexicoBeerID = pd.DataFrame(MexicoBeerIDs)
+    except:
+        pass 
+    try:
+        PeruID = pd.DataFrame(PeruIDs)
+    except:
+        pass 
+    try:
+        IntlID = pd.DataFrame(IntlIDs)
+    except:
+        pass 
 #Ian this is the main section that I spoke with Ian instructer about to understand why he didn't teach this.
 # The main difference between what Ian taught us and what I do here is that I do not utilize Flask or Splinter. I don't utilize it because Beautiful Soup makes it easier in my Opinion. So, I think we were taught Flask and splinter because in the long run they have more capabilities. However, fo now Beautiful Soup will work. 
 # The Headers are something that Splinter does automatically. 
