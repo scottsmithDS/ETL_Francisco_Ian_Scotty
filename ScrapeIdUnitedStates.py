@@ -9,71 +9,7 @@ import re
 import numpy as np
 import csv
 
-#This is not necessary to understand as it is just something I have set-up for making the scripts real time.
-    try: 
-        ChileIDs = pd.read_csv('ChileIDs.csv')
-    except:
-        pass
-    try:
-        ColombiaIDs = pd.read_csv('ColombiaIDs.csv')
-    except:
-        pass  
-    try:
-        CostaRicaIDs = pd.read_csv('CostaRicaIDs.csv')
-    except:
-        pass 
-    try:
-        EcuadorIDs = pd.read_csv('EcuadorIDs.csv')
-    except:
-        pass 
-    try:
-        MexicoSmartIDs = pd.read_csv('MexicoSmartIDs.csv')
-    except:
-        pass 
-    try:
-        MexicoBeerIDs = pd.read_csv('MexicoBeerIDs.csv')
-    except:
-        pass 
-    try:
-        PeruIDs = pd.read_csv('PeruIDs.csv')
-    except:
-        pass 
-    try:
-        IntlIDs = pd.read_csv('IntlIDs.csv')
-    except:
-        pass 
-    try:
-        ChileID = pd.DataFrame(ChileIDs)
-    except:
-        pass 
-    try:
-        ColombiaID = pd.DataFrame(ColombiaIDs)
-    except:
-        pass 
-    try:
-        CostaRicaID = pd.DataFrame(CostaRicaIDs)
-    except:
-        pass 
-    try:
-        EcuadorID = pd.DataFrame(EcuadorIDs)
-    except:
-        pass 
-    try:
-        MexicoSmartID = pd.DataFrame(MexicoSmartIDs)
-    except:
-        pass 
-    try:
-        MexicoBeerID = pd.DataFrame(MexicoBeerIDs)
-    except:
-        pass 
-    try:
-        PeruID = pd.DataFrame(PeruIDs)
-    except:
-        pass 
-    try:
-        IntlID = pd.DataFrame(IntlIDs)
-    except:
-        pass 
+
 #Ian this is the main section that I spoke with Ian instructer about to understand why he didn't teach this.
 # The main difference between what Ian taught us and what I do here is that I do not utilize Flask or Splinter. I don't utilize it because Beautiful Soup makes it easier in my Opinion. So, I think we were taught Flask and splinter because in the long run they have more capabilities. However, fo now Beautiful Soup will work. 
 # The Headers are something that Splinter does automatically. 
@@ -182,45 +118,45 @@ Ecuadordf.dropna(how ='all', inplace = True)
 #Since what is returned looks more like a string saying this: "View Report #2568798" Then we need to make it just equal to the ID
 Ecuadordf[1] = Ecuadordf[1].str.partition("#", True)[2]
 #Append that second list with the new values
-Ecuadordf2.append(Ecuadordf[1])
+Ecuadordf2.append(Ecuadordf[[1,16]])
 #Make it a Datframe
-Ecuadordf2 = pd.DataFrame(Ecuadordf2)
-#Transpose the data so that it is not sideways
-Ecuadordf2 = Ecuadordf2.T
+Ecuadordf2 = Ecuadordf2.pop()
 #Set column equal to "ID" and set the types
-Ecuadordf2.columns = ["ID"]
-Ecuadordf2['ID'] = Ecuadordf2['ID'].astype(str).astype('int')
+Ecuadordf2.columns = ["ID", "Form"]
+Ecuadordf2.astype({'ID':'int32'}).dtypes
 
 #You wont need anything from line 144-167
 
 Intldf = pd.DataFrame(dfcountry1)
 Intldf.dropna(how ='all', inplace = True)
 Intldf[1] = Intldf[1].str.partition("#", True)[2]
-Intldf2.append(Intldf[1])
-Intldf2 = pd.DataFrame(Intldf2)
-Intldf2 = Intldf2.T
-Intldf2.columns = ["ID"]
-Intldf2['ID'] = Intldf2['ID'].astype(str).astype('int')
+Intldf2.append(Intldf[[1,16]])
+Intldf2 = Intldf2.pop()
+Intldf2.columns = ["ID","Form"]
+Intldf2.astype({'ID':'int32'}).dtypes
+
+
 Perudf = pd.DataFrame(dfcountry2)
 Perudf.dropna(how ='all', inplace = True)
 Perudf[1] = Perudf[1].str.partition("#", True)[2]
-Perudf2.append(Perudf[1])
-Perudf2 = pd.DataFrame(Perudf2)
-Perudf2 = Perudf2.T
-Perudf2.columns = ["ID"]
-Perudf2['ID'] = Perudf2['ID'].astype(str).astype('int')
+Perudf2.append(Perudf[[1,16]])
+Perudf2 = Perudf2.pop()
+Perudf2.columns = ["ID","Form"]
+Perudf2.astype({'ID':'int32'}).dtypes
+
+
 MexBeerdf = pd.DataFrame(dfcountry4)
 MexBeerdf.dropna(how ='all', inplace = True)
 MexBeerdf[1] = MexBeerdf[1].str.partition("#", True)[2]
-MexBeerdf2.append(MexBeerdf[1])
-MexBeerdf2 = pd.DataFrame(MexBeerdf2)
-MexBeerdf2 = MexBeerdf2.T
-MexBeerdf2.columns = ["ID"]
-MexBeerdf2['ID'] = MexBeerdf2['ID'].astype(str).astype('int')
+MexBeerdf2.append(MexBeerdf[[1,16]])
+MexBeerdf2 = MexBeerdf2.pop()
+MexBeerdf2.columns = ["ID","Form"]
+MexBeerdf2.astype({'ID':'int32'}).dtypes
 
 
 #Send your Dataframe to a CSV File. I am just sending one to a csv because sending all would require so much work for us later on. The requirement is only 2 as well. 
 
 Intldf2.to_csv('IntlIDs.csv')
-
-#The only catch in all of this is that we want to make one difference here. Because we will later scrape the submission ID. We want to know what form this will show as. The form is shown as "Form" in the table. The values are either "Stone", "PreScreen", or something else. We will want to return that along with the submission ID as well. 
+Ecuadordf2.to_csv('EcuadorIDs.csv')
+Perudf2.to_csv('PeruIDs.csv')
+MexBeerdf2.to_csv('MexBeerIDs.csv')
