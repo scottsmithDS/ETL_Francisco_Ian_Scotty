@@ -200,7 +200,7 @@ namearraydf = namearraydf1.T
 locnamearraydf = locnamearraydf1.T
 
 listofBr = [Brand1array, Brand2array, Brand3array, Brand4array, Brand5array, Brand6array, Brand7array, Brand8array, Brand9array, Brand10array, Brand11array, Brand12array, Brand13array, Brand14array]         
-          Brand1array1 = {}
+Brand1array1 = {}
 Brand2array1 ={}
 Brand3array1 ={}
 Brand4array1 ={}
@@ -323,4 +323,4 @@ USBeerMarket = LocationDF.join([TimeDF,LatDF,LngDF, NameDF])
 USBeerMarketBrands = Brand1array1.join([Brand2array1, Brand3array1, Brand4array1, Brand5array1, Brand6array1, Brand7array1, Brand8array1, Brand9array1, Brand10array1, Brand11array1, Brand12array1, Brand13array1, Brand14array1])
 
 USBeerMarket.to_csv('USBeerMarket.csv')
-USBeerMarketBrands.to-csv('USBeerMarketBrands.csv')
+USBeerMarketBrands.to_csv('USBeerMarketBrands.csv')
